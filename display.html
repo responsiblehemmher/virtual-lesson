@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Properties Example</title>
+  <style>
+    .block {
+      display: block;
+      width: 100%;
+      background-color: lightblue;
+      margin-bottom: 10px;
+    }
+    .inline {
+      display: inline;
+      background-color: lightgreen;
+      margin-right: 10px;
+    }
+    .inline-block {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background-color: lightcoral;
+      margin-right: 10px;
+    }
+    .flex {
+      display: flex;
+      background-color: lightgoldenrodyellow;
+      margin-bottom: 10px;
+    }
+    .flex div {
+      background-color: lightcyan;
+      margin: 5px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      background-color: lightpink;
+      margin-bottom: 10px;
+    }
+    .grid div {
+      background-color: lightgray;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    .none {
+      display: none;
+      background-color: lightseagreen;
+    }
+  </style>
+</head>
+<body>    
+  <h1>Display Properties Example</h1>
+  
+  <div class="block">This is a block element. It takes up the full width available and starts on a new line.</div>
+  
+  <span class="inline">This is an inline element.</span>
+  <span class="inline">This is another inline element.</span>
+  
+  <div class="inline-block">This is an inline-block element.</div>
+  <div class="inline-block">This is another inline-block element.</div>
+  
+  <div class="flex">
+    <div>Item 1</div>
+    <div>Item 2</div>
+    <div>Item 3</div>
+  </div>
+  
+  <div class="grid">
+    <div>Grid Item 1</div>
+    <div>Grid Item 2</div>
+    <div>Grid Item 3</div>
+    <div>Grid Item 4</div>
+  </div>
+  
+  <div class="none">This element is not visible due to 'display: none'.</div>
+  
+</body>
+</html>

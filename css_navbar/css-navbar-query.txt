@@ -1,0 +1,569 @@
+CSS MEDIA QUERIES
+Definition:
+CSS Media Queries are a feature of CSS3 that allow you to apply styles based on the characteristics of the device rendering the content, such as the screen width, height, orientation, resolution, and more. Media queries enable responsive design by making it possible to create different layouts or styles depending on the device or viewport size.
+
+Syntax
+A media query consists of:
+
+An optional media type (like screen, print).
+One or more expressions that test for specific media features, such as width, height, orientation, etc.
+
+@media media_type (media_feature: value) {
+  /* CSS rules go here */
+}
+
+Examples
+1. Changing Styles Based on Screen Width
+This example changes the background color of a page when the screen width is 600px or less.
+
+/* Default styles */
+body {
+  background-color: lightblue;
+}
+
+/* Styles for screens with a width of 600px or less */
+@media screen and (max-width: 600px) {
+  body {
+    background-color: lightcoral;
+  }
+}
+
+2. Responsive Font Size
+This example sets different font sizes depending on the width of the viewport.
+  /* Default font size */
+body {
+  font-size: 18px;
+}
+
+/* Font size for screens with a width of 800px or less */
+@media screen and (max-width: 800px) {
+  body {
+    font-size: 16px;
+}
+
+/* Font size for screens with a width of 500px or less */
+@media screen and (max-width: 500px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+3. Applying Styles Based on Device Orientation
+This example changes the layout of a page based on the orientation of the device (portrait or landscape).
+  /* Styles for portrait orientation */
+@media screen and (orientation: portrait) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+/* Styles for landscape orientation */
+@media screen and (orientation: landscape) {
+  .container {
+    flex-direction: row;
+  }
+}
+
+MEDIA QUERY NAVBAR
+Example 1
+html file
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>
+
+css file
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    display: block;
+}
+
+.navbar ul li a:hover {
+    background-color: #575757;
+    border-radius: 4px;
+}
+
+/* Media Query for 760px and below */
+@media screen and (max-width: 760px) {
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+}
+
+/* Media Query for 480px and below */
+@media screen and (max-width: 480px) {
+    header {
+        padding: 20px 0;
+    }
+
+    .navbar ul li a {
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+}
+
+/* Media Query for 340px and below */
+@media screen and (max-width: 340px) {
+    .navbar ul li a {
+        padding: 12px 24px;
+        font-size: 20px;
+    }
+}
+
+
+Example 1: Simple Horizontal Navbar with Media Query
+html
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="MyLogo">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+css
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 760px) {
+    header {
+        flex-direction: column;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        height: 30px;
+    }
+    
+    nav ul li a {
+        padding: 5px 15px;
+    }
+}
+
+@media (max-width: 340px) {
+    header {
+        padding: 10px 10px;
+    }
+    
+    nav ul li a {
+        padding: 5px;
+        font-size: 14px;
+    }
+}
+
+
+Example 2: Centered Logo with Navbar with media query
+html
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="MyLogo">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+css
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #222;
+    color: white;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    margin-right: 50px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 760px) {
+    header {
+        flex-direction: column;
+    }
+    
+    .logo img {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        height: 40px;
+    }
+    
+    nav ul li a {
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 340px) {
+    nav ul li a {
+        padding: 5px;
+        font-size: 14px;
+    }
+}
+
+
+Example 3: Navbar with Background Color and Active State with media query
+html
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="BrandName">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+css
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #444;
+    color: white;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a.active {
+    background-color: #f39c12;
+    color: white;
+}
+
+nav ul li a:hover {
+    background-color: #e67e22;
+}
+
+/* Responsive Styles */
+@media (max-width: 760px) {
+    header {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        height: 30px;
+    }
+    
+    nav ul li a {
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 340px) {
+    nav ul li a {
+        padding: 5px;
+        font-size: 14px;
+    }
+}
+
+
+Example 4: Responsive Navbar with Dropdown Menu with media query
+html
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="SiteLogo">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li class="dropdown">
+                <a href="#">Services</a>
+                <ul class="dropdown-content">
+                    <li><a href="#">Web Design</a></li>
+                    <li><a href="#">SEO</a></li>
+                    <li><a href="#">Marketing</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+css
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #555;
+    color: white;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    position: relative;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #777;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #777;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.dropdown-content li {
+    margin: 0;
+}
+
+.dropdown-content li a {
+    padding: 10px 15px;
+}
+
+nav ul li:hover .dropdown-content {
+    display: block;
+}
+
+/* Responsive Styles */
+@media (max-width: 760px) {
+    header {
+        flex-direction: column;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    
+    .dropdown-content {
+        position: relative;
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        height: 30px;
+    }
+    
+    nav ul li a {
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 340px) {
+    nav ul li a {
+        padding: 5px;
+        font-size: 14px;
+    }
+    
+    .dropdown-content li a {
+        padding: 5px 10px;
+    }
+}
+
+
+
+
